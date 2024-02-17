@@ -209,7 +209,7 @@ document.getElementById("winMessageModal").addEventListener('blur', function (ev
 }, true);
 
 document.addEventListener('touchstart', handleTouchStart);
-document.addEventListener('touchmove', handleTouchMove, { passive: false });
+document.addEventListener('touchmove', handleTouchMove);
 document.addEventListener('touchend', handleTouchEnd);
 
 function handleTouchStart(event) {
@@ -235,6 +235,7 @@ function handleTouchMove(event) {
         x: event.touches[0].clientX,
         y: event.touches[0].clientY
     };
+    event.preventDefault();
 }
 
 function handleTouchEnd() {
