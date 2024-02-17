@@ -224,6 +224,7 @@ function handleTouchStart(event) {
 }
 
 function handleTouchMove(event) {
+    event.preventDefault();
     if (!isDragging || event.touches.length !== 1) return;
     const deltaMove = {
         x: event.touches[0].clientX - previousMousePosition.x,
@@ -235,7 +236,6 @@ function handleTouchMove(event) {
         x: event.touches[0].clientX,
         y: event.touches[0].clientY
     };
-    event.preventDefault();
 }
 
 function handleTouchEnd() {
