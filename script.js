@@ -5,6 +5,9 @@ let isPlaying = false;
 let idleRotationSpeed = 0.002; 
 let idleAnimation = true;
 
+// Sensitivity
+const screenSensitivityDivisor = 10000;
+
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer();
@@ -220,8 +223,8 @@ function handleTouchMove(event) {
         x: event.touches[0].clientX - previousMousePosition.x,
         y: event.touches[0].clientY - previousMousePosition.y
     };
-    cubesParent.rotation.y += deltaMove.x * 0.01; // Rotate the parent object
-    cubesParent.rotation.x += deltaMove.y * 0.01;
+    const sensitivityScale = calculateSensitivityScale();
+    rotateCube(deltaMove.x * sensitivityScale, deltaMove.y * sensitivityScale);
     previousMousePosition = {
         x: event.touches[0].clientX,
         y: event.touches[0].clientY
@@ -230,6 +233,18 @@ function handleTouchMove(event) {
 
 function handleTouchEnd() {
     isDragging = false;
+}
+
+function rotateCube(deltaX, deltaY) {
+    cubesParent.rotation.y += deltaX * 0.01; // Rotate around y-axis
+    cubesParent.rotation.x += deltaY * 0.01; // Rotate around x-axis
+}
+
+function calculateSensitivityScale() {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    const diagonalScreenSize = Math.sqrt(screenWidth * screenWidth + screenHeight * screenHeight);
+    return diagonalScreenSize / screenSensitivityDivisor; // Adjust the divisor as needed
 }
 
 // Set camera position
