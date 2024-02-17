@@ -28,7 +28,7 @@
             <p>A 3D twist of a classic game. The rules of the game are<br>simple match three of the same color
                 vertically, horizontally or diagonally.</p>
             <div style="display: flex;align-items: center;flex-direction: column;">
-                <button id="playButton" onclick="toggleMenu();closeMenu()">Play Game</button>
+                <button id="playButton" onclick="toggleMenu();resetGame();closeMenu()">Play Game</button>
                 <button id="supportButton" onclick="showSupport()">Support</button>
             </div>
         </div>
@@ -80,6 +80,7 @@
         let Cash = 250;let targetCash = 1000;
 
         function toggleMenu() {
+            spectate = false;
             menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
             menuButton.style.display = (menuButton.style.display === 'block') ? 'none' : 'block';
         }

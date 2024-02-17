@@ -1,5 +1,6 @@
 // Game State Variables
 let isPlaying = false;
+let spectate = false;
 
 // Spinning Animation
 let idleRotationSpeed = 0.002; 
@@ -65,6 +66,7 @@ function toggleCubeColor(cube) {
             
             document.getElementById('winMessageText').innerText = popupMessageText;
             $('#winMessageModal').modal('show');
+            isPlaying = false;
             start_idle();
         } else {
             currentPlayer = currentPlayer === 'red' ? 'green' : 'red'; // Switch player
@@ -129,8 +131,8 @@ function checkWinCondition(cube) {
 
 // Function to reset the game
 function resetGame() {
+    isPlaying = true;
     cubesParent.children.forEach(cube => {
-        console.log(cube)
         // Reset cube color to white
         if(!cube.material.wireframe){
             cube.material.color.set(0xffffff);
@@ -150,7 +152,7 @@ function aiMakeMove() {
 }
 
 document.addEventListener('click', (event) => {
-    if(!(idleRotationSpeed>0)){
+    if(!(idleRotationSpeed>0) && isPlaying){
         if (currentPlayer === 'red') { // Only allow human player to make moves when it's their turn
             const raycaster = new THREE.Raycaster();
             const mouse = new THREE.Vector2();
@@ -201,6 +203,10 @@ document.addEventListener('mousemove', (event) => {
 document.addEventListener('mouseup', () => {
     isDragging = false;
 });
+
+document.getElementById("winMessageModal").addEventListener('blur', function (event) {
+    start_idle();
+}, true);
 
 document.addEventListener('touchstart', handleTouchStart);
 document.addEventListener('touchmove', handleTouchMove);
@@ -258,6 +264,7 @@ function closeMenu() {
 }
 
 function start_idle(){
+    spectate = false;
     idleAnimation = !idleAnimation;
     idleRotationSpeed = 0.002;
 }
