@@ -199,6 +199,39 @@ document.addEventListener('mouseup', () => {
     isDragging = false;
 });
 
+document.addEventListener('touchstart', handleTouchStart);
+document.addEventListener('touchmove', handleTouchMove);
+document.addEventListener('touchend', handleTouchEnd);
+
+function handleTouchStart(event) {
+    if (event.touches.length === 1) {
+        event.preventDefault();
+        isDragging = true;
+        previousMousePosition = {
+            x: event.touches[0].clientX,
+            y: event.touches[0].clientY
+        };
+    }
+}
+
+function handleTouchMove(event) {
+    if (!isDragging || event.touches.length !== 1) return;
+    const deltaMove = {
+        x: event.touches[0].clientX - previousMousePosition.x,
+        y: event.touches[0].clientY - previousMousePosition.y
+    };
+    cubesParent.rotation.y += deltaMove.x * 0.01; // Rotate the parent object
+    cubesParent.rotation.x += deltaMove.y * 0.01;
+    previousMousePosition = {
+        x: event.touches[0].clientX,
+        y: event.touches[0].clientY
+    };
+}
+
+function handleTouchEnd() {
+    isDragging = false;
+}
+
 // Set camera position
 camera.position.z = 5;
 
