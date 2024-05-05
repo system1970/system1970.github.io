@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body class="p-3" style="background-image: url('https://i.pinimg.com/originals/0c/96/7c/0c967c4af27aa805391e3be495936acd.png');">
+  <div class="container text-center" style="opacity: 87.5%;">
+    <h1 class="mb-4 text-white">Code Convert</h1>
+    <!-- <p class="bg-white fs-6 w-25 m-auto mb-3 rounded-3 font-weight-bold">OPENAI API Key</p> -->
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Enter your API Key..." aria-label="API Key" aria-describedby="button-addon2" id="apikey">
+      <button class="btn btn-dark" type="button" id="button-addon2" onclick="setApiKey()">Set</button>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title font-weight-bold">Input</h5>
+            <textarea style="overflow: hidden;resize: none;" class="form-control" id="Code" rows="10" placeholder="Type/Paste your code here."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title font-weight-bold">Output</h5>
+            <textarea style="overflow: hidden;resize: none;" class="form-control" id="TranslateBox" rows="10" readonly>Translated Code will appear here.</textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-4 text-black">
+      <div class="mb-3 row">
+        <label for="language" class="text-bg-info rounded col-sm-2 col-form-label">From:</label>
+        <div class="col-sm-10">
+          <input type="text" id="language" list="datalistOptions" class="form-control" placeholder="Enter Language of Input...">
+          <datalist id="datalistOptions">
+            <option value="Python">
+            <option value="C++">
+            <option value="Javascript">
+            <option value="Golang">
+            <option value="C">
+            <option value="C#">
+            <option value="Rust"></option>
+            <option value="Ruby"></option>
+            <option value="Java"></option>
+            <option value="Erlang"></option>
+            <option value="Kotlin"></option>
+          </datalist>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="Translate" class="text-bg-info rounded col-sm-2 col-form-label">To:</label>
+        <div class="col-sm-10">
+          <input type="text" id="Translate" list="datalistOptions" class="form-control" placeholder="Enter Language to Output..." >
+          <datalist id="datalistOptions">
+            <option value="Python">
+            <option value="C++">
+            <option value="Javascript">
+            <option value="Golang">
+            <option value="C">
+            <option value="C#">
+            <option value="Rust"></option>
+            <option value="Ruby"></option>
+            <option value="Java"></option>
+            <option value="Erlang"></option>
+            <option value="Kotlin"></option>
+          </datalist>
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="gptConvert()">Convert</button>
+    </div>
+    <a href="https://www.educative.io/" class="text-bg-secondary" target="_blank">Educative</a>
+  </div>
+
+  <div id="alertContainer" class=" position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <!-- Alert will be dynamically added here -->
+  </div>
+
+  <script src="./gpt.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

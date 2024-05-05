@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bootstrap Popup Alert</title>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="text-center p-3">
+  <button id="showAlertBtn" class="btn btn-primary">Show Alert</button>
+
+  <!-- Bootstrap alert -->
+  <div id="alertContainer" class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <!-- Alert will be dynamically added here -->
+  </div>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script>
+  document.getElementById('showAlertBtn').addEventListener('click', function() {
+    // Create the alert element
+    var alertElement = document.createElement('div');
+    alertElement.className = 'alert alert-primary alert-dismissible fade show';
+    alertElement.setAttribute('role', 'alert');
+    alertElement.innerHTML = `
+      <strong>Well done!</strong> You clicked the button to show this alert.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    `;
+
+    // Add the alert element to the container
+    if(document.getElementById('alertContainer').children.length === 0) {
+        document.getElementById('alertContainer').appendChild(alertElement);
+    }
+  });
+</script>
+</body>
+</html>

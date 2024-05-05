@@ -1,116 +1,146 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>3D Tic-Tac-Toe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Showcase</title>
     <style>
         body {
             margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
         }
-
-        canvas {
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+        .container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            color: #fff;
+            overflow-y: scroll;
+        }
+        h1 {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        .project-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 30px;
+        }
+        .project-image {
+            flex: 0 0 40%;
+            margin-right: 20px;
+        }
+        .project-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .project-info {
+            flex: 0 0 50%;
+        }
+        .project-info h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .project-info p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .project-button {
             display: block;
+            width: 100%;
+            max-width: 200px;
+            padding: 15px 20px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+        .project-button:hover {
+            background-color: #0056b3;
         }
     </style>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-    <div id="menuButton" onclick="toggleMenu();start_idle()">Menu</div>
-
-    <div id="overlayMenu">
-        <div id="mainMenu">
-            <h2>3D Tic-Tac-Toe</h2>
-            <p>A 3D twist of a classic game. The rules of the game are<br>simple match three of the same color
-                vertically, horizontally or diagonally.</p>
-            <div style="display: flex;align-items: center;flex-direction: column;">
-                <button id="playButton" onclick="toggleMenu();resetGame();closeMenu()">Play Game</button>
-                <button id="supportButton" onclick="showSupport()">Support</button>
+    <div id="particles-js"></div>
+    <div class="container">
+        <h1>SSIM</h1>
+        
+        <div class="project-section">
+            <div class="project-image">
+                <img src="https://plus.unsplash.com/premium_photo-1675600857281-0057e83f1fff?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project 1">
+            </div>
+            <div class="project-info">
+                <h2> 3D Tic Tac Toe (Using Three JS) </h2>
+                <p> A 3d game of tic tac toe made using three js library. </p>
+                <a href="3DTicTacToe/main.html" target="_blank" class="project-button">View Project</a>
             </div>
         </div>
-        <div id="supportContent">
-            <h2>Support</h2>
-            <img id="supportImage" src="Support QR.png" alt="Support Image">
-            <div  class="progressBar">
-                <div id="progressBar" class="progressBarFill" style="width: 10%;"></div> <!-- Set width dynamically based on progress -->
+
+        <div class="project-section">
+            <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?q=80&w=1789&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project 2">
             </div>
-            <div>
-                <div class="num nowrap"></div>
-                <div class="flex items-center">
-                    <span id="Cash" class="text-success"></span>
-                </div>
+            <div class="project-info">
+                <h2> Code Translate (Using ChatGPT)</h2>
+                <p> Write code in any programming language and get it translate to any other language of your choice in a single click. </p>
+                <a href="./Code Translate/code.html" target="_blank" class="project-button">View Project</a>
             </div>
-            <button id="backButton" onclick="hideSupport()">Back</button>
         </div>
+
+        <div class="project-section">
+            <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1613677135043-a2512fbf49fa?q=80&w=1944&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project 3">
+            </div>
+            <div class="project-info">
+                <h2>Styx Compiler</h2>
+                <p> An Online compiler for Styx.
+                    Styx is a programming language made using functional programming paradigm in python. </p>
+                <a href="project2.html" class="project-button">View Project</a>
+            </div>
+        </div>
+
+        <!-- PROJECT SECTION TEMPLATE -->
+        <!-- <div class="project-section">
+            <div class="project-image">
+                <img src="project3.jpg" alt="Project 3">
+            </div>
+            <div class="project-info">
+                <h2>Project 3</h2>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <a href="project3.html" class="project-button">View Project</a>
+            </div>
+        </div> -->
     </div>
 
-    <div class="modal fade" id="winMessageModal" tabindex="-1" role="dialog" aria-labelledby="winMessageModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="winMessageModalLabel">Congratulations!</h5>
-                    <button type="button" class="close" onclick="toggleMenu();resetGame()" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p id="winMessageText"></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" onclick="resetGame();start_idle()" class="btn btn-primary"
-                        id="playAgainButton" data-dismiss="modal">Play Again</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        var menu = document.getElementById('overlayMenu');
-        var menuButton = document.getElementById('menuButton');
-        var supportContent = document.getElementById('supportContent');
-        let Cash = 250;let targetCash = 1000;
-
-        function toggleMenu() {
-            spectate = false;
-            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-            menuButton.style.display = (menuButton.style.display === 'block') ? 'none' : 'block';
-        }
-
-        function showSupport() {
-            var mainMenu = document.getElementById('mainMenu');
-            var supportContent = document.getElementById('supportContent');
-            var progressBar = document.getElementById('progressBar');
-            var progressText = document.getElementById('Cash');
-            progressText.innerHTML = '₹' + Cash + ' raised out of ' + '₹' +  targetCash;
-            var percent = Cash/targetCash * 100;
-            progressBar.style.width = percent + "%";
-            mainMenu.style.display = 'none';
-            supportContent.style.display = 'block';
-        }
-
-        function hideSupport() {
-            var mainMenu = document.getElementById('mainMenu');
-            var supportContent = document.getElementById('supportContent');
-            mainMenu.style.display = 'block';
-            supportContent.style.display = 'none';
-        }
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape') {
-                if (menu.style.display === 'none') {
-                    toggleMenu(); start_idle();
-                }
-            }
+        particlesJS.load('particles-js', 'particles.json', function() {
+            console.log('particles.js loaded - callback');
         });
     </script>
 </body>
-
 </html>

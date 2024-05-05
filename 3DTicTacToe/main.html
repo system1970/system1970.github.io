@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>3D Tic-Tac-Toe</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <div id="menuButton" onclick="toggleMenu();start_idle()">Menu</div>
+
+    <div id="overlayMenu">
+        <div id="mainMenu">
+            <h2>3D Tic-Tac-Toe</h2>
+            <p>A 3D twist of a classic game. The rules of the game are<br>simple match three of the same color
+                vertically, horizontally or diagonally.</p>
+            <div style="display: flex;align-items: center;flex-direction: column;">
+                <button id="playButton" onclick="toggleMenu();resetGame();closeMenu()">Play Game</button>
+                <button id="supportButton" onclick="showSupport()">Support</button>
+            </div>
+        </div>
+        <div id="supportContent">
+            <h2>Support</h2>
+            <img id="supportImage" src="Support QR.png" alt="Support Image">
+            <div  class="progressBar">
+                <div id="progressBar" class="progressBarFill" style="width: 10%;"></div> <!-- Set width dynamically based on progress -->
+            </div>
+            <div>
+                <div class="num nowrap"></div>
+                <div class="flex items-center">
+                    <span id="Cash" class="text-success"></span>
+                </div>
+            </div>
+            <button id="backButton" onclick="hideSupport()">Back</button>
+        </div>
+    </div>
+
+    <div class="modal fade" id="winMessageModal" tabindex="-1" role="dialog" aria-labelledby="winMessageModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="winMessageModalLabel">Congratulations!</h5>
+                    <button type="button" class="close" onclick="toggleMenu();resetGame()" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="winMessageText"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="resetGame();start_idle()" class="btn btn-primary"
+                        id="playAgainButton" data-dismiss="modal">Play Again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        var menu = document.getElementById('overlayMenu');
+        var menuButton = document.getElementById('menuButton');
+        var supportContent = document.getElementById('supportContent');
+        let Cash = 250;let targetCash = 1000;
+
+        function toggleMenu() {
+            spectate = false;
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+            menuButton.style.display = (menuButton.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function showSupport() {
+            var mainMenu = document.getElementById('mainMenu');
+            var supportContent = document.getElementById('supportContent');
+            var progressBar = document.getElementById('progressBar');
+            var progressText = document.getElementById('Cash');
+            progressText.innerHTML = '₹' + Cash + ' raised out of ' + '₹' +  targetCash;
+            var percent = Cash/targetCash * 100;
+            progressBar.style.width = percent + "%";
+            mainMenu.style.display = 'none';
+            supportContent.style.display = 'block';
+        }
+
+        function hideSupport() {
+            var mainMenu = document.getElementById('mainMenu');
+            var supportContent = document.getElementById('supportContent');
+            mainMenu.style.display = 'block';
+            supportContent.style.display = 'none';
+        }
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                if (menu.style.display === 'none') {
+                    toggleMenu(); start_idle();
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

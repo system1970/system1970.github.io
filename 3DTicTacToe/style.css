@@ -1,0 +1,83 @@
+#overlayMenu {
+    display: block; /* Initially hide the menu */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    text-align: center; /* Center align text */
+}
+
+#playButton, #supportButton  {
+    background-color: #007bff; /* Blue background color */
+    color: #ffffff; /* White text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px; /* Add some margin to separate from other content */
+}
+
+/* Style for menu button */
+#menuButton {
+    display: none; /* Hide */
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 101; /* Ensure the button is above the overlay menu */
+}
+
+#supportContent {
+    display: none; /* Initially hide the support content */
+    margin-top: 20px; /* Add margin to separate from other content */
+}
+
+#supportImage {
+    max-width: 25rem; /* Set maximum width for the image */
+    max-height: 25rem; /* Set maximum height for the image */
+    width: auto; /* Ensure the image maintains its aspect ratio */
+    height: auto; /* Ensure the image maintains its aspect ratio */
+    margin-bottom: 10px;
+}
+
+.progressBar {
+    width: 20rem; /* Adjust progress bar width as needed */
+    height: 10px; /* Adjust progress bar height as needed */
+    background-color: #f0f0f0; /* Light gray background color */
+    border-radius: 5px;
+    overflow: hidden; /* Ensure progress bar stays within container */
+}
+
+.progressBarFill {
+    height: 100%;
+    background-color: #28a745; /* Blue fill color */
+}
+
+#backButton {
+    background-color: #dc3545; /* Red background color */
+    color: #ffffff; /* White text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px; /* Add some margin to separate from other content */
+}
+
+.modal-body {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.modal-footer {
+    justify-content: center;
+}
