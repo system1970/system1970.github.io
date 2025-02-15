@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Chess Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Chess/css/chessboard-1.0.0.css') }}" />
+</head>
+<body>
+
+<h1>Interactive Chess Game</h1>
+<div id="board" style="width: 400px;"></div>
+<button onclick="startNewGame()">Start New Game</button>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.2/chess.min.js"></script>
+<script src="{{ url_for('static', filename='Chess/js/chessboard-1.0.0.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>  <!-- Socket.IO -->
+
+<script>
+    let board = null;
+    const game = new Chess();
+    const socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);  // Initialize WebSocket
+
+    // Initialize the chessboard
+    function initializeBoard() {
+        board = Chessboard('board', {
+            draggable: true,
+            position: 'start',
+            onDrop: handleMove
+        });
+    }
+
+    // Handle move and send to Flask backend
+    function handleMove(source, target) {
+        const move = game.move({ from: source, to: target, promotion: 'q' });
+        if (move === null) return 'snapback';
+
+        fetch('/make_move', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ move: source + target })
+        }).then(response => response.json());
+    }
+
+    // Start a new game
+    function startNewGame() {
+        fetch('/new_game', { method: 'POST' })
+            .then(response => response.json())
+            .then(data => {
+                game.reset();
+                board.start();
+            });
+    }
+
+    // Update board position when receiving new data from the server
+    socket.on('update_board', function(data) {
+        game.load(data.fen);  // Load new game state
+        board.position(game.fen());  // Update board visually
+    });
+
+    // Initialize the board on page load
+    document.addEventListener('DOMContentLoaded', initializeBoard);
+</script>
+
+</body>
+</html>
