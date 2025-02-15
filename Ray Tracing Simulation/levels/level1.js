@@ -3,6 +3,7 @@ function level1Setup(){
     isAlive = true;
     score = 0;
     winningConditionMet = false;
+    // obstacleMovingSpeed = 3;
 
     for(let i = 0; i < 7; i++) {
         walls[i] =  generateBoundary(sceneW/3 + i*100);
@@ -59,10 +60,10 @@ function level1Design(){
             // checkPoints[i].show()
         }
     } 
-    // else {
+    else {
         // obstacleMovingSpeed = 0; 
-        // isAlive = false;
-    // }
+        isAlive = false;
+    }
 
     return false;
 }

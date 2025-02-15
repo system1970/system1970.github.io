@@ -18,7 +18,7 @@ let score;
 let isResetting;
 
 let winningConditionMet = false;
-let level = 4;
+let level = 1;
 let levels = []
 let transitionTime = 1000; // 1000ms = 1s
 

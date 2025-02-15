@@ -67,10 +67,10 @@ function level2Design() {
         if(toPop)
             walls.pop(toPop)
     } 
-    // else {
-    //     // obstacleMovingSpeed = 0; 
-        // isAlive = false;
-    // }
+    else {
+        // obstacleMovingSpeed = 0; 
+        isAlive = false;
+    }
 }
 
 function level2CodeWindow(codeWindow) {

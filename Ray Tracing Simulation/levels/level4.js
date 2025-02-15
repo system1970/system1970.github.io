@@ -7,7 +7,7 @@ var cols, rows;
 var zoff = 0;
 var fps;
 var particles = [];
-var numParticles = 1000;
+var numParticles = 5500;
 var flowfield;
 var flowcolorfield;
 var magOff = 0;
@@ -21,7 +21,7 @@ function level4Setup() {
   codingWindowLocked = false;
   posY = window.innerHeight/1.025/2;
   particle = new Particle();
-  pixelDensity(1);
+  pixelDensity(0.8);
   cols = floor(sceneW / scl);
   rows = floor(height / scl);
   // col = 100;
@@ -29,7 +29,7 @@ function level4Setup() {
   background(0);
 
   for (let i = 0; i < numParticles; i++) {
-    particles[i] = new flowFieldParticle(6);
+    particles[i] = new flowFieldParticle(10);
   }
 
   flowfield = new Array(rows * cols);
@@ -59,7 +59,7 @@ function flowFieldParticle(maxSpeed) {
     this.vel.add(this.acc);
     this.vel.limit(this.maxSpeed);
     this.pos.add(this.vel);
-    this.acc.mult(0);
+    this.acc.mult(0.3);
   };
 
   this.applyForce = function (force) {
@@ -67,8 +67,8 @@ function flowFieldParticle(maxSpeed) {
   };
 
   this.show = function (colorfield) {
-    // strokeWeight(0.1);
-    // if (mouseIsPressed) line(this.pos.x, this.pos.y, particle.pos.x, particle.pos.y);
+    strokeWeight(0.1);
+    if (mouseIsPressed) line(this.pos.x, this.pos.y, particle.pos.x, particle.pos.y);
     strokeWeight(1);
     line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
     strokeWeight(1);

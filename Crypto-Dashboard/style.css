@@ -1,0 +1,137 @@
+/* Crypto-Dashboard/style.css */
+
+/* Color Palette (Consistent with Portfolio Theme) */
+:root {
+    --primary-purple: #6c5ce7;
+    --secondary-violet: #a29bfe;
+    --neon-cyan: #00ffff;
+    --dark-background: #2d3436;
+    --darker-background: #252a2b;
+    --light-text: #f8f8f8;
+    --secondary-text: #adb5bd;
+    --accent-hover: rgba(108, 92, 231, 0.8);
+    --error-red: #ff4d4d;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--dark-background);
+    color: var(--light-text);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+    background-color: var(--darker-background);
+    color: var(--light-text);
+    padding: 2rem 0;
+    text-align: center;
+    border-bottom: 2px solid var(--secondary-violet);
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    letter-spacing: 0.05em;
+}
+
+header p {
+    color: var(--secondary-text);
+    font-size: 1.1rem;
+}
+
+main {
+    padding: 2rem;
+}
+
+.charts-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .charts-container {
+        grid-template-columns: 1fr; /* Stack charts on smaller screens */
+    }
+}
+
+.chart-card {
+    background-color: var(--darker-background);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.chart-card h2 {
+    color: var(--light-text);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+#data-table-container {
+    background-color: var(--darker-background);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow-x: auto; /* Enable horizontal scroll for table if needed */
+}
+
+#data-table-container h2 {
+    color: var(--light-text);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+
+#crypto-price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#crypto-price-table th, #crypto-price-table td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid var(--dark-background); /* Slightly lighter border */
+    color: var(--light-text);
+}
+
+#crypto-price-table th {
+    font-weight: bold;
+    color: var(--light-text);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+#crypto-price-table tbody tr:nth-child(even) {
+    background-color: var(--dark-background); /* Slightly darker even rows */
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    border-top: 2px solid var(--secondary-violet);
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--secondary-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--neon-cyan);
+}

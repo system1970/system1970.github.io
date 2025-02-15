@@ -3,158 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Showcase</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-        }
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background-color: #000;
-            background-size: cover;
-            background-position: 50% 50%;
-            background-repeat: no-repeat;
-            z-index: -1;
-        }
-        .container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            padding: 20px;
-            color: #fff;
-            overflow-y: scroll;
-        }
-        h1 {
-            margin-bottom: 50px;
-            text-align: center;
-        }
-        .project-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 50px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 30px;
-        }
-        .project-image {
-            flex: 0 0 40%;
-            margin-right: 20px;
-        }
-        .project-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-        .project-info {
-            flex: 0 0 50%;
-        }
-        .project-info h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        .project-info p {
-            font-size: 16px;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-        .project-button {
-            display: block;
-            width: 100%;
-            max-width: 200px;
-            padding: 15px 20px;
-            font-size: 18px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-        }
-        .project-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <title>[Your Name] - Creative Technology Portfolio</title>
+    <meta name="description" content="[Your Name]'s Creative Technology Portfolio showcasing diverse projects and a passion for innovation.">
+
+    <!-- Preload Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"></noscript>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Animate On Scroll (AOS) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
-<body>
-    <div id="particles-js"></div>
-    <div class="container">
-        <h1>SSIM</h1>
-        
-        <div class="project-section">
-            <div class="project-image">
-                <img src="https://plus.unsplash.com/premium_photo-1675600857281-0057e83f1fff?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project 1">
-            </div>
-            <div class="project-info">
-                <h2> 3D Tic Tac Toe (Using Three JS) </h2>
-                <p> A 3d game of tic tac toe made using three js library. </p>
-                <a href="3DTicTacToe/main.html" target="_blank" class="project-button">View Project</a>
+<body class="bg-dark-background dark text-light-text">
+
+    <!-- Hero Section -->
+    <section id="hero" class="py-24 md:py-36 relative overflow-hidden">
+        <div class="custom-container text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold hero-title mb-4" data-aos="fade-up">Hello, I'm [Your Name].</h1>
+            <h2 class="text-violet-300 text-xl md:text-2xl mb-8" data-aos="fade-up" data-aos-delay="200">Creative Technologist & Innovator.</h2>
+            <p class="text-lg md:text-xl text-gray-400 mb-12" data-aos="fade-up" data-aos-delay="400">Exploring the intersection of technology and creativity, building unique digital experiences and solutions.</p>
+            <a href="#projects" class="button button-primary rotate-hover" data-aos="fade-up" data-aos-delay="600">View My Projects</a>
+        </div>
+        <!-- Geometric Background (Optional - can add in CSS or as SVG) -->
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 md:py-24 bg-darker-background">
+        <div class="custom-container">
+            <h2 class="section-title text-center mb-12" data-aos="fade-down">Diverse Competencies</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+                <!-- Skill Cards - Customize Icons and Text -->
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-code skill-icon"></i> <h3>Creative Coding & Web Dev</h3> <p>JavaScript, HTML, CSS, p5.js, Three.js, React</p></div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-palette skill-icon"></i> <h3>Design & UI/UX</h3> <p>User Interface Design, User Experience Principles, Figma</p></div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-chart-bar skill-icon"></i> <h3>Data Visualization</h3> <p>Data Analysis, Charting Libraries, Interactive Dashboards</p></div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="400"><i class="fas fa-robot skill-icon"></i> <h3>AI & Machine Learning Fundamentals</h3> <p>Basic ML Concepts, Model Building, Python</p></div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="500"><i class="fas fa-server skill-icon"></i> <h3>Backend & API Development</h3> <p>Node.js, Express.js, REST APIs</p></div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="600"><i class="fas fa-project-diagram skill-icon"></i> <h3>Problem Solving & Logic</h3> <p>Algorithmic Thinking, Analytical Skills, Debugging</p></div>
+                <!-- Add more skill cards as needed -->
             </div>
         </div>
+    </section>
 
-        <div class="project-section">
-            <div class="project-image">
-                <img src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?q=80&w=1789&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project 2">
-            </div>
-            <div class="project-info">
-                <h2> Code Translate (Using ChatGPT)</h2>
-                <p> Write code in any programming language and get it translate to any other language of your choice in a single click. </p>
-                <a href="./Code Translate/code.html" target="_blank" class="project-button">View Project</a>
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 md:py-24">
+        <div class="custom-container">
+            <h2 class="section-title text-center mb-12" data-aos="fade-down">Projects & Explorations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Project Cards -  ACCURATE PROJECT DESCRIPTIONS BELOW -->
+                <!-- Project 1 - 3D Tic Tac Toe -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="3DTicTacToe/p2.png" alt="3D Tic Tac Toe Game" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">3D Tic Tac Toe Game</h3>
+                        <p class="project-description">A visually engaging browser-based 3D Tic Tac Toe game created with **Three.js**, showcasing creative coding and interactive web graphics. Explores 3D rendering, user interaction, and game development principles in a fun, accessible format.</p>
+                        <div class="project-actions">
+                            <a href="3DTicTacToe/main.html" target="_blank" class="button button-secondary">View Project</a>
+                            <a href="#" class="project-github-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Project 2 - Code Translate -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="./Code Translate/p1.png" alt="Code Translate Tool" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Code Translate with ChatGPT</h3>
+                        <p class="project-description">An experimental code translation tool built with the **ChatGPT API**, demonstrating the practical application of AI for software development workflows. Explores natural language processing and AI-assisted problem-solving in a coding context.</p>
+                        <div class="project-actions">
+                            <a href="./Code Translate/code.html" target="_blank" class="button button-secondary">View Project</a>
+                            <a href="#" class="project-github-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 - Lorenz Attractor Visualization -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="./Butterfly-Generator/preview.png" alt="Lorenz Attractor Visualization" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Lorenz Attractor Visualization (Vue.js)</h3>
+                        <p class="project-description">A visually captivating and interactive representation of the Lorenz Attractor, implemented using **Vue.js**. Highlights data visualization skills, front-end development expertise, and the ability to translate complex concepts into engaging web experiences.</p>
+                        <div class="project-actions">
+                            <a href="Butterfly-Generator/index.html" target="_blank" class="button button-secondary">View Project</a>
+                            <a href="#" class="project-github-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- New Project Card - RAY (A p5.js Creation) -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                    <img src="./Ray Tracing Simulation/p3.png" alt="RAY(A p5.js Creation)" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">RAY (A p5.js Creation)</h3>
+                        <p class="project-description">RAY (A p5.js Creation) is a browser-based game developed using **p5.js**, a JavaScript library for creative coding. This project showcases performant game mechanics, flow fields for dynamic movement, procedural generation using L-systems for level design, and 2D raycasting for interactive elements.</p>
+                        <div class="project-actions">
+                            <a href="Ray Tracing Simulation/ray.html" target="_blank" class="button button-secondary">View Project</a>
+                            <a href="#" class="project-github-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                    <div style="width: 100%; margin-bottom: 1rem;">
+                        <canvas id="cryptoChart" width="400" height="200"></canvas>
+                    </div>
+                    <div class="project-content"> <!-- No image for this project, using content directly -->
+                        <h3 class="project-title">Real-time Crypto Price Dashboard</h3>
+                        <p class="project-description">A live cryptocurrency price dashboard visualizing real-time price fluctuations for Bitcoin (BTC) using data from the CoinGecko API and **Chart.js** for interactive charting. Demonstrates data fetching, real-time updates, and dynamic data visualization techniques.</p>
+                        
+                        <div class="project-actions" > <!-- Adjusted for vertical layout -->
+    
+                            <a href="Crypto-Dashboard/index.html" target="_blank" class="button button-secondary">View Project</a>
+                            <a href="#" class="project-github-link"><i class="fab fa-github"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more project cards here (with accurate descriptions) -->
             </div>
         </div>
+    </section>
 
-        <div class="project-section">
-            <div class="project-image">
-                <img src="https://images.unsplash.com/photo-1613677135043-a2512fbf49fa?q=80&w=1944&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project 3">
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 bg-darker-background">
+        <div class="custom-container grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="about-image-container" data-aos="fade-right">
+                <img src="profile_pic.png" alt="Profile Picture" class="about-image">
             </div>
-            <div class="project-info">
-                <h2>Styx Compiler</h2>
-                <p> An Online compiler for Styx.
-                    Styx is a programming language made using functional programming paradigm in python. </p>
-                <a href="project2.html" class="project-button">View Project</a>
+            <div class="about-content" data-aos="fade-left">
+                <h2 class="section-title">About Me</h2>
+                <p class="mb-6">A creative technologist driven by a passion for building innovative and engaging digital experiences. I thrive on exploring the diverse possibilities at the intersection of technology and creativity, leveraging a wide range of skills to bring unique ideas to life.</p>
+                <p class="mb-6">With a background in [Your Background - e.g., Computer Science, Design, Engineering, Arts], I bring a versatile skillset encompassing [Key Skills - e.g., coding, design principles, problem-solving, data analysis]. I am always eager to learn new technologies and approaches to push creative boundaries and develop impactful projects across different domains.</p>
+                <a href="#" class="button button-primary">Download Resume</a>
             </div>
         </div>
+    </section>
 
-        <div class="project-section">
-            <div class="project-image">
-                <img src="./Images/ray.png" alt="Project 4">
-            </div>
-            <div class="project-info">
-                <h2>Ray .</h2>
-                <p> A Game made using p5.js
-                    You play as a ball of light navigating endlessly through space, You have a voice thats talking to you. 
-                    Let's see where this takes you. You <br />
-                    <bold>Status: Work in Progress.</bold> </p>
-                <a href="./Ray Tracing Simulation/ray.html" class="project-button">View Project</a>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24">
+        <div class="custom-container text-center">
+            <h2 class="section-title text-center mb-12" data-aos="fade-down">Get In Touch</h2>
+            <form id="contact-form" class="max-w-lg mx-auto">
+                <div class="mb-6" data-aos="fade-up" data-aos-delay="100">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required class="form-input">
+                    <p id="name-error" class="error-message"></p>
+                </div>
+                <div class="mb-6" data-aos="fade-up" data-aos-delay="200">
+                    <input type="email" id="email" name="email" placeholder="Your Email" required class="form-input">
+                    <p id="email-error" class="error-message"></p>
+                </div>
+                <div class="mb-6" data-aos="fade-up" data-aos-delay="300">
+                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required class="form-input"></textarea>
+                    <p id="message-error" class="error-message"></p>
+                </div>
+                <button type="submit" class="button button-primary rotate-hover" data-aos="fade-up" data-aos-delay="400">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-darker-background border-t border-violet-700">
+        <div class="custom-container text-center">
+            <p class="footer-text">© 2024 [Your Name]. All Rights Reserved.</p>
+            <div class="mt-4 footer-social-links">
+                <a href="#" class="footer-social-link"><i class="fab fa-github fa-2x"></i></a>
+                <a href="#" class="footer-social-link"><i class="fab fa-linkedin fa-2x"></i></a>
+                <a href="#" class="footer-social-link"><i class="fab fa-twitter fa-2x"></i></a>
             </div>
         </div>
+    </footer>
 
-        <!-- PROJECT SECTION TEMPLATE -->
-        <!-- <div class="project-section">
-            <div class="project-image">
-                <img src="project3.jpg" alt="Project 3">
-            </div>
-            <div class="project-info">
-                <h2>Project 3</h2>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                <a href="project3.html" class="project-button">View Project</a>
-            </div>
-        </div> -->
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS.load('particles-js', 'particles.json', function() {
-            console.log('particles.js loaded - callback');
-        });
-    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
 </body>
 </html>
